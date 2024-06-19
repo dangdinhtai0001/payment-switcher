@@ -34,7 +34,7 @@ abstract class AbstractWorldfirstSdk {
         return rs
     }
 
-    private fun requestTimeToString(requestTime: Instant?): String {
+    protected fun requestTimeToString(requestTime: Instant?): String {
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX")
             .withZone(ZoneId.systemDefault())
 
