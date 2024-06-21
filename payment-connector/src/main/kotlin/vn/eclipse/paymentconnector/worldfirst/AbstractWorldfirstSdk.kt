@@ -15,16 +15,16 @@ abstract class AbstractWorldfirstSdk {
         requestUrlEndpoint: String,
         requestBodyStr: String,
         clientId: String,
-        digitalSignatureEngine: DigitalSignatureEngine,
     ): String {
         val signData: String = """
             $httpMethod $requestUrlEndpoint
             $clientId.$requestTime.$requestBodyStr
         """.trimIndent()
 
-        val algorithm: String = "RSA256"
-        val keyVersion: Int = 1
+        val algorithm = "RSA256"
+        val keyVersion = 1
 
+        val digitalSignatureEngine = getDigitalSignatureEngine(name = clientId)
 
         val signatureByteArray: ByteArray = digitalSignatureEngine.sign(signData.toByteArray(Charsets.UTF_8))
         val signature = Base64.getEncoder().encodeToString(signatureByteArray)
@@ -33,6 +33,8 @@ abstract class AbstractWorldfirstSdk {
 
         return rs
     }
+
+    abstract fun getDigitalSignatureEngine(name: String): DigitalSignatureEngine;
 
     protected fun requestTimeToString(requestTime: Instant?): String {
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX")

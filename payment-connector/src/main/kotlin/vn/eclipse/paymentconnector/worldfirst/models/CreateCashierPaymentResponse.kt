@@ -1,4 +1,4 @@
-package vn.eclipse.paymentconnector.worldfirst.model
+package vn.eclipse.paymentconnector.worldfirst.models
 
 data class CreateCashierPaymentResponse(
     val result: Result,

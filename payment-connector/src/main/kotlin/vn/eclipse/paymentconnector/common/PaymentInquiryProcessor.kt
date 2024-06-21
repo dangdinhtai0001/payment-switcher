@@ -1,4 +1,4 @@
-package vn.eclipse.paymentconnector.worldfirst
+package vn.eclipse.paymentconnector.common
 
 interface PaymentInquiryProcessor <RequestType, ResponseType> {
     fun process(req: RequestType): ResponseType
