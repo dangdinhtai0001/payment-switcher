@@ -1,0 +1,3 @@
+rootProject.name = 'examples'
+include ':payment-connector'
+project(':payment-connector').projectDir = file("../payment-connector")

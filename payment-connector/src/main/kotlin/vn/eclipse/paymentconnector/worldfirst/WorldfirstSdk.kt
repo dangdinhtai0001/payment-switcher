@@ -45,7 +45,7 @@ class WorldfirstSdk(
 
     override fun getDigitalSignatureEngine(name: String): DigitalSignatureEngine {
         return digitalSignatureManager.get(name)
-            ?: throw IllegalArgumentException("DigitalSignatureEngine with name $name not found.")
+            ?: throw IllegalArgumentException("DigitalSignatureEngine with name `$name` not found.")
     }
 
 }
